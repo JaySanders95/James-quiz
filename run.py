@@ -14,7 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quiz_Scores')
 
-scores = SHEET.worksheet('scores')
+
 
 def get_user_name():
     """ 
@@ -30,9 +30,10 @@ def get_user_name():
         print("Please enter a valid name.")
         username = input("What is your name? ").capitalize()
     if username != "":
-            print(f"Welcome {username}!")
-    
-    get_username = username
+        print(f"Let's get started {username}!")
+    return username
+
+
 
 
 
@@ -45,11 +46,11 @@ def main_game():
     Then add their highscores to the Quiz_Scores Google spreadsheet
     and relay the highscore table back to them
     """
-    get_user_name()
+    username = get_user_name()
 
     score = 0
-    
 
+    print(f"Welcome {username}!")
     print("Question 1 \n")
     print("What is the capital of Australia?")
     userInput = input()
@@ -163,6 +164,9 @@ def main_game():
         print("-------------------------------")
     
     
-    print(f"Thanks for playing, your final score was {score}")
+    print(f"Thanks for playing {username}, your final score was {score}")
+
+    score_sheet = SHEET.worksheet("scores")
+    score_sheet.append_row([username, score])
 
 main_game()
