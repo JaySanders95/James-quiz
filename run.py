@@ -16,6 +16,16 @@ SHEET = GSPREAD_CLIENT.open('Quiz_Scores')
 
 scores = SHEET.worksheet('scores')
 
-data = scores.get_all_values()
+def get_user_name():
+    """ 
+    This takes the users name from them upon entry and will be
+    used to save their highscore.
+    """
+    print("Welcome to James' Quiz!\n")
+    print("When playing the game,\n")
+    print("Please enter 't' for true\n")
+    print("and 'f' for false.\n")
+    name = input("What is your name? ")
+    print(f"Welcome {name}!")
 
-print(data)
+get_user_name()
