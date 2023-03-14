@@ -249,14 +249,14 @@ def football_quiz():
         print("-------------------------------")
     
     print("Question 6 \n")
-    print("What year was VAR introduced into the premier league?")
+    print("Where was the 2016 Champions League final held?")
     userInput = input()
-    if (userInput == 2019):
+    if (userInput.lower() == "San siro".lower()):
         print("That is correct!")
         print("-------------------------------")
         score +=1
     else:   
-        print("Sorry, the correct answer is 2019.")
+        print("Sorry, the correct answer is San siro.")
         print("-------------------------------")
     
     print("Question 7 \n")
@@ -403,54 +403,60 @@ def music_quiz():
         print("-------------------------------")
     
     print("Question 7 \n")
-    print("The first atomic bomb was dropped on which Japanese city?")
+    print("What artist has played at glastonbury festival the most?")
     userInput = input()
-    if (userInput.lower() == "Hiroshima".lower()):
+    if (userInput.lower() == "Van Morrison".lower()):
         print("That is correct!")
+        print("He has played the most with 8 appearances")
         print("-------------------------------")
         score +=1
     else:   
-        print("Sorry, the correct answer is Hiroshima.")
+        print("Sorry, the correct answer is Van Morrison.")
+        print("He has played the most with 8 appearances")
         print("-------------------------------")
     
     print("Question 8 \n")
-    print("What is the chemical symbol for iron?")
+    print("Who 'wrote' Party in the USA?")
     userInput = input()
-    if (userInput.lower() == "Fe".lower()):
+    if (userInput.lower() == "Jessie J".lower()):
         print("That is correct!")
+        print("Jessie J wrote the song for Miley Cyrus")
         print("-------------------------------")
         score +=1
     else:   
-        print("Sorry, the correct answer is Fe.")
+        print("Sorry, the correct answer is Jessie J.")
+        print("Jessie J wrote the song for Miley Cyrus")
         print("-------------------------------")
     
     print("Question 9 \n")
-    print("What country has the most islands in the world?")
+    print("What city is the band Arctic Monkeys from?")
     userInput = input()
-    if (userInput.lower() == "Sweden".lower()):
+    if (userInput.lower() == "Sheffield".lower()):
         print("That is correct!")
+        print("Arctic Monkeys are from Sheffield, UK")
         print("-------------------------------")
         score +=1
     else:   
-        print("Sorry, the correct answer is Sweden.")
+        print("Sorry, the correct answer is Sheffield.")
+        print("Arctic Monkeys are from Sheffield, UK")
         print("-------------------------------")
     
     print("Question 10 \n")
-    print("What is the biggest mammal in the world?")
+    print("Who is the lead singer of Coldplay?")
     userInput = input()
-    if (userInput.lower() == "Blue whale".lower()):
+    if (userInput.lower() == "Chris Martin".lower()):
         print("That is correct!")
         print("-------------------------------")
         score +=1
 
     else:   
-        print("Sorry, the correct answer is Blue whale.")
+        print("Sorry, the correct answer is Chris Martin.")
         print("-------------------------------")
     
     
     print(f"Thanks for playing {username}, your final score was {score}")
 
-    score_sheet = SHEET.worksheet("general")
+    score_sheet = SHEET.worksheet("music")
     score_sheet.append_row([username, score])
 
     print("-----------------------------")
@@ -475,7 +481,7 @@ while True:
         football_quiz()
         break
     elif userInput == "music":
-        print("music quiz")
+        music_quiz()
         break
     else:
         print(f"{userInput} is an invalid choice, please try again\n")
