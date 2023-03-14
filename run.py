@@ -25,7 +25,17 @@ def get_user_name():
     print("When playing the game,\n")
     print("Please enter 't' for true\n")
     print("and 'f' for false.\n")
-    name = input("What is your name? ")
-    print(f"Welcome {name}!")
+    name = input("What is your name? ").capitalize()
+    while name == "":
+        print("----------------------------")
+        print("You havent entered a name\n")
+        print("Please enter a valid name.\n")
+        name = input("What is your name? ").capitalize()
+        if name != "":
+            
+            print(f"Welcome {name}!")
+    username = name
+
+
 
 get_user_name()
