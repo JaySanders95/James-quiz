@@ -376,7 +376,7 @@ def music_quiz():
         print("-------------------------------")
 
     print("Question 6 \n")
-    print("Who had won the most Grammy awards?")
+    print("Who has won the most Grammy awards?")
     userInput = input()
     if (userInput.lower() == "Beyonce".lower()):
         print("That is correct!")
@@ -463,4 +463,3 @@ while True:
         break
     else:
         print(f"{userInput} is an invalid choice, please try again")
-        
