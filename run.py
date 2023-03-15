@@ -40,6 +40,7 @@ def general_knowledge():
     """
     username = get_user_name()
     print("Welcome to the General Knowledge Quiz!\n")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
     print("Question 1 \n")
     print("What is the capital of Australia?")
@@ -172,6 +173,7 @@ def football_quiz():
     """
     username = get_user_name()
     print("Welcome to the Football Quiz!\n")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
     print("Question 1 \n")
     print("Who won the 2006 World cup?")
@@ -314,6 +316,7 @@ def music_quiz():
     """
     username = get_user_name()
     print("Welcome to the Music Quiz!\n")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
     print("Question 1 \n")
     print("What band wrote 'Let it be?'")
