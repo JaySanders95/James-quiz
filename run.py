@@ -1,8 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
-
-
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -14,8 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quiz_Scores')
 
-
-
+#Get player username
 def get_user_name():
     """ 
     This takes the users name from them upon entry and will be
@@ -23,8 +20,6 @@ def get_user_name():
     This is lenient to be able to accept anything other 
     than an empty string.
     """
-
-
     username = input("What is your name? \n").capitalize()
     while username == "":
         print("Please enter a valid name.")
@@ -33,12 +28,7 @@ def get_user_name():
         print(f"Let's get started {username}!")
     return username
 
-
-
-
-
-
-
+#General Knowledge Quiz
 def general_knowledge():
     """
     This function will be the general knowledge quiz, this will ask the
@@ -56,7 +46,6 @@ def general_knowledge():
         print("That is correct!")
         print("-------------------------------")
         score +=1
-
     else:   
         print("Sorry, the correct answer is Canberra.")
         print("-------------------------------")
@@ -160,19 +149,15 @@ def general_knowledge():
     else:   
         print("Sorry, the correct answer is Blue whale.")
         print("-------------------------------")
-    
-    
+    #Prints users name, score then recent highscores
     print(f"Thanks for playing {username}, your final score was {score}")
-
     score_sheet = SHEET.worksheet("general")
     score_sheet.append_row([username, score])
-
     print("-----------------------------")
-    print("----------Highscores---------")
+    print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
-
 
 def football_quiz():
     """
@@ -192,7 +177,6 @@ def football_quiz():
         print("They won 5-3 on penalties against France.")
         print("-------------------------------")
         score +=1
-
     else:   
         print("Sorry, the correct answer is Italy.")
         print("They won 5-3 on penalties against France.")
@@ -210,7 +194,6 @@ def football_quiz():
         print("Sorry, the correct answer is Mario Gotze.")
         print("He scored in the 113th minute to win.")
         print("-------------------------------")
-
     print("Question 3 \n")
     print("Who is the all time top goalscorer in the World Cup?")
     userInput = input()
@@ -303,19 +286,15 @@ def football_quiz():
         print("That is correct!")
         print("-------------------------------")
         score +=1
-
     else:   
         print("Sorry, the correct answer is Jurgen Klopp.")
         print("-------------------------------")
     
-    
     print(f"Thanks for playing {username}, your final score was {score}")
-
     score_sheet = SHEET.worksheet("football")
     score_sheet.append_row([username, score])
-
     print("-----------------------------")
-    print("----------Highscores---------")
+    print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
@@ -337,13 +316,12 @@ def music_quiz():
         print("That is correct!")
         print("-------------------------------")
         score +=1
-
     else:   
         print("Sorry, the correct answer is The Beatles.")
         print("-------------------------------")
 
     print("Question 2 \n")
-    print("What is the name of the sold album of all time?")
+    print("What is the name of the sold vinyl of all time?")
     userInput = input()
     if (userInput.lower() == "Thriller".lower()):
         print("That is correct!")
@@ -448,25 +426,18 @@ def music_quiz():
         print("That is correct!")
         print("-------------------------------")
         score +=1
-
     else:   
         print("Sorry, the correct answer is Chris Martin.")
         print("-------------------------------")
-    
-    
+        
     print(f"Thanks for playing {username}, your final score was {score}")
-
     score_sheet = SHEET.worksheet("music")
     score_sheet.append_row([username, score])
-
     print("-----------------------------")
-    print("----------Highscores---------")
+    print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
-
-
-
 
 while True:
     print("What quiz would you like to play?\n")
@@ -485,7 +456,3 @@ while True:
         break
     else:
         print(f"{userInput} is an invalid choice, please try again\n")
-
-
-
-
