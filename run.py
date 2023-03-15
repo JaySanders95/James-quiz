@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+
 
 
 SCOPE = [
@@ -25,10 +25,10 @@ def get_user_name():
     """
 
 
-    username = input("What is your name? ").capitalize()
+    username = input("What is your name? \n").capitalize()
     while username == "":
         print("Please enter a valid name.")
-        username = input("What is your name? ").capitalize()
+        username = input("What is your name? \n").capitalize()
     if username != "":
         print(f"Let's get started {username}!")
     return username
@@ -171,7 +171,7 @@ def general_knowledge():
     print("----------Highscores---------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    pprint(highscores)
+    print(highscores)
 
 
 def football_quiz():
@@ -318,7 +318,7 @@ def football_quiz():
     print("----------Highscores---------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    pprint(highscores)
+    print(highscores)
 
 def music_quiz():
     """
@@ -463,7 +463,7 @@ def music_quiz():
     print("----------Highscores---------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    pprint(highscores)
+    print(highscores)
 
 
 
