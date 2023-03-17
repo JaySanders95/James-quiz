@@ -472,8 +472,8 @@ def play_again():
     elif replay == "N".lower():
         print("Thanks for playing!")
     else:
-        print("You have entered an incorrect item, the game has been ended.")
-        
+        print("Invalid input entered, the game has been ended.")
+
 
 def choose_quiz():
     """
@@ -496,5 +496,6 @@ def choose_quiz():
             break
         else:
             print(f"{userInput} is an invalid choice, please try again")
+
 
 choose_quiz()

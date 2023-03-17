@@ -27,6 +27,12 @@ The quiz resides within 4 functions, once a quiz is selected by typing, it will 
 ![](../James-quiz/images/Test-spreadsheet.png)
 ![](../James-quiz/images/spreadsheet-test.png)
 
+## Restart game
+- When the game has ended the user is asked "would you like to play again(Y/N)", when they type Y, the game loops and restarts.
+- If the user enters "N", they are greeted with a "Thanks for playing" message.
+- If the user enters anything other than Y/N, they are notified that they have entered an invalid character and the game will end.
+![](../James-quiz/images/play-again1.png)
+![](../James-quiz/images/play-again2.png)
 
 ## Testing
 - I have manually tested my code through the CI linter at https://pep8ci.herokuapp.com/# and there are no issues with the code.
