@@ -1,6 +1,7 @@
 # James' Quiz
 ![](James-quiz/assets/images/am-i-responsive.png)
 ![Am i responsive](James-quiz/assets/images/am-i-responsive.png)
+![](../James-quiz/assets/images/test.jpg)
 James' quiz is an interactive terminal quiz, it presents the user with 10 questions. If they answer a question correct, their score increases by one. When the game is finished the user is presented with their final score, then presented with the recent player scores. The user has the chance to choose 1 of 3 quizzes, the choices are general knowledge, football and music.
 Each individual quiz has their respective recent scores which is set on a Google Spreadsheet called Quiz_Scores, these are 3 individual sheets called "general", "football" & "music".
 The quiz resides within 4 functions, once a quiz is selected by typing, it will call the appropriate quiz by their function. During this function it will call the get username function, which will obtain the users name and then proceed with the quiz.
