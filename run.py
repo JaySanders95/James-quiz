@@ -21,7 +21,7 @@ def get_user_name():
     This is lenient to be able to accept anything other
     than an empty string.
     """
-    username = input("What is your name? \n").capitalize()
+    username = str(input("What is your name? \n").capitalize())
     while username == "":
         print("Please enter a valid name.")
         username = input("What is your name? \n").capitalize()
@@ -161,6 +161,10 @@ def general_knowledge():
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
+    print("-----------------------------")
+    print("-----------------------------")
+    print("-----------------------------\n")
+    play_again()
 
 
 # Football Quiz
@@ -304,6 +308,10 @@ def football_quiz():
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
+    print("-----------------------------")
+    print("-----------------------------")
+    print("-----------------------------\n")
+    play_again()
 
 
 # Music Quiz
@@ -447,22 +455,46 @@ def music_quiz():
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     print(highscores)
+    print("-----------------------------")
+    print("-----------------------------")
+    print("-----------------------------\n")
+
+    play_again()
 
 
-while True:
-    print("What quiz would you like to play?\n")
-    print("Your choices are:")
-    print("General Knowledge\nFootball\nMusic")
-    print("Please type general, football or music")
-    userInput = input().lower()
-    if userInput == "general":
-        general_knowledge()
-        break
-    elif userInput == "football":
-        football_quiz()
-        break
-    elif userInput == "music":
-        music_quiz()
-        break
+def play_again():
+    """
+    Asks the user if they would like to restart the game.
+    """
+    replay = input("Would you like to play again?(Y/N): ").lower()
+    if replay == "Y".lower():
+        choose_quiz()
+    elif replay == "N".lower():
+        print("Thanks for playing!")
     else:
-        print(f"{userInput} is an invalid choice, please try again")
+        print("You have entered an incorrect item, the game has been ended.")
+        
+
+def choose_quiz():
+    """
+    asks the user what quiz they would like to play
+    """
+    while True:
+        print("What quiz would you like to play?\n")
+        print("Your choices are:")
+        print("General Knowledge\nFootball\nMusic")
+        print("Please type general, football or music")
+        userInput = input().lower()
+        if userInput == "general":
+            general_knowledge()
+            break
+        elif userInput == "football":
+            football_quiz()
+            break
+        elif userInput == "music":
+            music_quiz()
+            break
+        else:
+            print(f"{userInput} is an invalid choice, please try again")
+
+choose_quiz()
