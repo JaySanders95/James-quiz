@@ -21,13 +21,15 @@ def get_user_name():
     This is lenient to be able to accept anything other
     than an empty string.
     """
-    username = str(input("What is your name? \n").capitalize())
-    while username == "":
-        print("Please enter a valid name.")
-        username = input("What is your name? \n").capitalize()
-    if username != "":
-        print(f"Let's get started {username}!")
-    return username
+    while True:
+        try:
+            username = str(input("What is your name? \n").capitalize())
+            if not username.strip():
+                raise ValueError("Invalid data entered")
+            return username
+            break
+        except ValueError as e:
+            print(e)
 
 
 # General Knowledge Quiz
@@ -39,8 +41,8 @@ def general_knowledge():
     and relay the highscore table back to them
     """
     username = get_user_name()
-    print("Welcome to the General Knowledge Quiz!\n")
-    print("if you do not know the enter press 'enter' to pass")
+    print(f"Welcome to the General Knowledge Quiz {username}!\n")
+    print("if you do not know the answer press 'enter' to pass")
     score = 0
     print("Question 1 \n")
     print("What is the capital of Australia?")
@@ -160,7 +162,8 @@ def general_knowledge():
     print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    print(highscores)
+    for row in highscores:
+        print(row[0] + ':  ' + row[1])  
     print("-----------------------------")
     print("-----------------------------")
     print("-----------------------------\n")
@@ -307,7 +310,8 @@ def football_quiz():
     print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    print(highscores)
+    for row in highscores:
+        print(row[0] + ':  ' + row[1])
     print("-----------------------------")
     print("-----------------------------")
     print("-----------------------------\n")
@@ -454,7 +458,8 @@ def music_quiz():
     print("----------Recent scores------")
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
-    print(highscores)
+    for row in highscores:
+        print(row[0] + ':  ' + row[1])
     print("-----------------------------")
     print("-----------------------------")
     print("-----------------------------\n")

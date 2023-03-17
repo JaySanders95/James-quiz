@@ -18,7 +18,7 @@ The quiz resides within 4 functions, once a quiz is selected by typing, it will 
 - The quiz will load questions one at a time, some questions have extra explanation for the answer.
 - Every question that is answered correctly will increment the score by 1, which will be presented to the user at the end in the form of an F string, which will print "thanks for playing (the name the user chose at the start), your final score was (the score variable and the incremented result).
 - This quiz was constructed using a data input with the .capitalize() to ensure that as long as the correct answer is answered it will allow it, checking the data against the correct answer using '==', within the if statement, if they typed the correct answer the score variable will be incremented by 1 and they will be greeted with a print statement confirming they have the correct answer. If they entered an incorrect answer, they will be told the correct answer and within some questions both a correct and incorrect answer will yield a brief comment on the answer. As seen in picture below.
-![](../James-quiz/images/extra-information-answer.png)
+![](../James-Quiz/images/extra-information-answer.png)
 
 ## End of game / recent scores
 
