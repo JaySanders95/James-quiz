@@ -47,7 +47,7 @@ def general_knowledge():
     """
     def valid_input(user_input):
         # Checks if user input is a string entered
-        return all(char in string.ascii_letters + ' ' for char in user_input)
+        return all(char in string.ascii_letters for char in user_input)
     
     def get_valid_input(question):
         while True:
@@ -55,30 +55,29 @@ def general_knowledge():
             if valid_input(user_input):
                 return user_input
             else:
-                print("Invalid input. Please use letters only.")
+                print("Invalid input. Please enter an answer using letters only.")
 
     print(f"Welcome to the General Knowledge Quiz {username}!\n")
-    print("if you do not know the answer press 'enter' to pass")
     score = 0
 
     questions = [
-        "What is the capital of Australia?  ",
-        "Who won the Men's Euro 2020 competition?  ",
-        "What is the smallest planet in our solar system?  ",
-        "What sport is played using Tees, clubs and holes?  ",
-        "What is the official language of Brazil?  ",
-        "What is the tallest man made structure in the world?  ",
-        "The first atomic bomb was dropped on which Japanese city?  ",
-        "What is the chemical symbol for iron?  ",
-        "What country has the most islands in the world?  ",
-        "What is the biggest mammal in the world?  "
+        "What is the capital of Australia?",
+        "Who won the Men's Euro 2020 competition?",
+        "What is the smallest planet in our solar system?",
+        "Name the first actor to play Dumbledore in the Harry Potter films.",
+        "What is the official language of Brazil?",
+        "What is the tallest man-made structure on earth?",
+        "The first atomic bomb was dropped on which Japanese city?",
+        "What is the chemical symbol for iron?",
+        "What country has the most islands in the world?",
+        "What is the biggest mammal in the world?"
     ]
 
     answers = [
         "Canberra",
         "Portugal",
         "Mercury",
-        "Golf",
+        "Richard Harris",
         "Portuguese",
         "Burj Khalifa",
         "Hiroshima",

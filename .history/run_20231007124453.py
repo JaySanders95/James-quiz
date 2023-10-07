@@ -1,4 +1,4 @@
-import string
+
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -13,6 +13,10 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quiz_Scores')
 
+def check_username_validity(username):
+    # Checks if the username entered is valid
+    return all(char.isalnum() for char in username)
+
 # Get player username
 def get_user_name():
     """
@@ -24,17 +28,16 @@ def get_user_name():
     while True:
         user_input = input("Enter a username: \n")
 
-        if user_input.isalnum():
+        if check_username_validity(username):
             return user_input
         else:
             print("Invalid input. Please enter a username with only letters and numbers")
-
-
-try:
-    username = get_user_name()
-    print("You entered a valid username: ", username)
-except ValueError as ve:
-    print(str(ve))
+    
+    try:
+        username = user_input
+        print("You entered a valid username: ", username)
+    except ValueError as ve:
+        print(str(ve))
 
 
 # General Knowledge Quiz
@@ -45,173 +48,120 @@ def general_knowledge():
     Then add their highscores to the Quiz_Scores Google spreadsheet
     and relay the highscore table back to them
     """
-    def valid_input(user_input):
-        # Checks if user input is a string entered
-        return all(char in string.ascii_letters + ' ' for char in user_input)
-    
-    def get_valid_input(question):
-        while True:
-            user_input = input(question)
-            if valid_input(user_input):
-                return user_input
-            else:
-                print("Invalid input. Please use letters only.")
-
+    username = get_user_name()
     print(f"Welcome to the General Knowledge Quiz {username}!\n")
     print("if you do not know the answer press 'enter' to pass")
     score = 0
+    print("Question 1 \n")
+    print("What is the capital of Australia?")
+    userInput = input()
+    if (userInput.lower() == "Canberra".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Canberra.")
+        print("-------------------------------")
 
-    questions = [
-        "What is the capital of Australia?  ",
-        "Who won the Men's Euro 2020 competition?  ",
-        "What is the smallest planet in our solar system?  ",
-        "What sport is played using Tees, clubs and holes?  ",
-        "What is the official language of Brazil?  ",
-        "What is the tallest man made structure in the world?  ",
-        "The first atomic bomb was dropped on which Japanese city?  ",
-        "What is the chemical symbol for iron?  ",
-        "What country has the most islands in the world?  ",
-        "What is the biggest mammal in the world?  "
-    ]
+    print("Question 2 \n")
+    print("Who won the Men's Euro 2020 competition?")
+    userInput = input()
+    if (userInput.lower() == "Portugal".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Portugal.")
+        print("-------------------------------")
 
-    answers = [
-        "Canberra",
-        "Portugal",
-        "Mercury",
-        "Golf",
-        "Portuguese",
-        "Burj Khalifa",
-        "Hiroshima",
-        "Fe",
-        "Sweden",
-        "Blue whale"
-    ]
+    print("Question 3 \n")
+    print("What is the smallest planet in our solar system?")
+    userInput = input()
+    if (userInput.lower() == "Mercury".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Mercury.")
+        print("-------------------------------")
 
-    for i in range(10):
-        print(f"Question{i + 1}\n")
-        user_input = get_valid_input(questions[i])
+    print("Question 4 \n")
+    print("Name the first actor to play Dumbledore in the Harry Potter films.")
+    userInput = input()
+    if (userInput.lower() == "Richard Harris".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Richard Harris.")
+        print("-------------------------------")
 
-        if user_input.lower() == answers[i].lower():
-            print("That is correct!")
-            print("-------------------------------")
-            score += 1
-        else:
-            print(f"Sorry, the correct answer is {answers[i]}")
-            print("-------------------------------")
+    print("Question 5 \n")
+    print("What is the official language of Brazil?")
+    userInput = input()
+    if (userInput.lower() == "Portugese".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Portugese.")
+        print("-------------------------------")
 
-    # print("if you do not know the answer press 'enter' to pass")
-    
-    # print("Question 1 \n")
-    # print("What is the capital of Australia?")
-    # userInput = input()
-    # if (userInput.lower() == "Canberra".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Canberra.")
-    #     print("-------------------------------")
+    print("Question 6 \n")
+    print("What is the tallest man made structure on earth?")
+    userInput = input()
+    if (userInput.lower() == "Burj Khalifa".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Burj Khalifa.")
+        print("-------------------------------")
 
-    # print("Question 2 \n")
-    # print("Who won the Men's Euro 2020 competition?")
-    # userInput = input()
-    # if (userInput.lower() == "Portugal".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Portugal.")
-    #     print("-------------------------------")
+    print("Question 7 \n")
+    print("The first atomic bomb was dropped on which Japanese city?")
+    userInput = input()
+    if (userInput.lower() == "Hiroshima".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Hiroshima.")
+        print("-------------------------------")
 
-    # print("Question 3 \n")
-    # print("What is the smallest planet in our solar system?")
-    # userInput = input()
-    # if (userInput.lower() == "Mercury".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Mercury.")
-    #     print("-------------------------------")
+    print("Question 8 \n")
+    print("What is the chemical symbol for iron?")
+    userInput = input()
+    if (userInput.lower() == "Fe".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Fe.")
+        print("-------------------------------")
 
-    # print("Question 4 \n")
-    # print("Name the first actor to play Dumbledore in the Harry Potter films.")
-    # userInput = input()
-    # if (userInput.lower() == "Richard Harris".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Richard Harris.")
-    #     print("-------------------------------")
+    print("Question 9 \n")
+    print("What country has the most islands in the world?")
+    userInput = input()
+    if (userInput.lower() == "Sweden".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Sweden.")
+        print("-------------------------------")
 
-    # print("Question 5 \n")
-    # print("What is the official language of Brazil?")
-    # userInput = input()
-    # if (userInput.lower() == "Portugese".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Portugese.")
-    #     print("-------------------------------")
+    print("Question 10 \n")
+    print("What is the biggest mammal in the world?")
+    userInput = input()
+    if (userInput.lower() == "Blue whale".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
 
-    # print("Question 6 \n")
-    # print("What is the tallest man made structure on earth?")
-    # userInput = input()
-    # if (userInput.lower() == "Burj Khalifa".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Burj Khalifa.")
-    #     print("-------------------------------")
-
-    # print("Question 7 \n")
-    # print("The first atomic bomb was dropped on which Japanese city?")
-    # userInput = input()
-    # if (userInput.lower() == "Hiroshima".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Hiroshima.")
-    #     print("-------------------------------")
-
-    # print("Question 8 \n")
-    # print("What is the chemical symbol for iron?")
-    # userInput = input()
-    # if (userInput.lower() == "Fe".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Fe.")
-    #     print("-------------------------------")
-
-    # print("Question 9 \n")
-    # print("What country has the most islands in the world?")
-    # userInput = input()
-    # if (userInput.lower() == "Sweden".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Sweden.")
-    #     print("-------------------------------")
-
-    # print("Question 10 \n")
-    # print("What is the biggest mammal in the world?")
-    # userInput = input()
-    # if (userInput.lower() == "Blue whale".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-
-    # else:
-    #     print("Sorry, the correct answer is Blue whale.")
-    #     print("-------------------------------")
-        
+    else:
+        print("Sorry, the correct answer is Blue whale.")
+        print("-------------------------------")
     # Prints users name, score then recent highscores
     print(f"Thanks for playing {username}, your final score was {score}")
     score_sheet = SHEET.worksheet("general")
@@ -236,6 +186,7 @@ def football_quiz():
     Then add their highscores to the Quiz_Scores Google spreadsheet
     and relay the highscore table back to them
     """
+    username = get_user_name()
     print("Welcome to the Football Quiz!\n")
     print("if you do not know the enter press 'enter' to pass")
     score = 0
@@ -383,6 +334,7 @@ def music_quiz():
     Then add their highscores to the Quiz_Scores Google spreadsheet
     and relay the highscore table back to them
     """
+    username = get_user_name()
     print("Welcome to the Music Quiz!\n")
     print("if you do not know the enter press 'enter' to pass")
     score = 0

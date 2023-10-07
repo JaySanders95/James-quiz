@@ -58,7 +58,6 @@ def general_knowledge():
                 print("Invalid input. Please use letters only.")
 
     print(f"Welcome to the General Knowledge Quiz {username}!\n")
-    print("if you do not know the answer press 'enter' to pass")
     score = 0
 
     questions = [

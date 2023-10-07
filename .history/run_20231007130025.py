@@ -1,4 +1,4 @@
-import string
+
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -46,61 +46,17 @@ def general_knowledge():
     and relay the highscore table back to them
     """
     def valid_input(user_input):
-        # Checks if user input is a string entered
-        return all(char in string.ascii_letters + ' ' for char in user_input)
-    
-    def get_valid_input(question):
-        while True:
-            user_input = input(question)
-            if valid_input(user_input):
-                return user_input
-            else:
-                print("Invalid input. Please use letters only.")
+        # Checks if user input is a string entering
+        return all(char in str.ascii_letters for char in user_input)
+
+
 
     print(f"Welcome to the General Knowledge Quiz {username}!\n")
-    print("if you do not know the answer press 'enter' to pass")
-    score = 0
 
-    questions = [
-        "What is the capital of Australia?  ",
-        "Who won the Men's Euro 2020 competition?  ",
-        "What is the smallest planet in our solar system?  ",
-        "What sport is played using Tees, clubs and holes?  ",
-        "What is the official language of Brazil?  ",
-        "What is the tallest man made structure in the world?  ",
-        "The first atomic bomb was dropped on which Japanese city?  ",
-        "What is the chemical symbol for iron?  ",
-        "What country has the most islands in the world?  ",
-        "What is the biggest mammal in the world?  "
-    ]
 
-    answers = [
-        "Canberra",
-        "Portugal",
-        "Mercury",
-        "Golf",
-        "Portuguese",
-        "Burj Khalifa",
-        "Hiroshima",
-        "Fe",
-        "Sweden",
-        "Blue whale"
-    ]
-
-    for i in range(10):
-        print(f"Question{i + 1}\n")
-        user_input = get_valid_input(questions[i])
-
-        if user_input.lower() == answers[i].lower():
-            print("That is correct!")
-            print("-------------------------------")
-            score += 1
-        else:
-            print(f"Sorry, the correct answer is {answers[i]}")
-            print("-------------------------------")
 
     # print("if you do not know the answer press 'enter' to pass")
-    
+    # score = 0
     # print("Question 1 \n")
     # print("What is the capital of Australia?")
     # userInput = input()
