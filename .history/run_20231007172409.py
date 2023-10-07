@@ -51,7 +51,7 @@ def general_knowledge():
         has_letters = any(char in string.ascii_letters for char in user_input)
         has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
         return has_letters and has_valid_chars
-
+    
     def get_valid_input(question):
         while True:
             user_input = input(question)
@@ -111,7 +111,7 @@ def general_knowledge():
     print("-----------------------------\n")
     highscores = score_sheet.get_all_values()
     for row in highscores:
-        print(row[0] + ':  ' + row[1])
+        print(row[0] + ':  ' + row[1])  
     print("-----------------------------")
     print("-----------------------------")
     print("-----------------------------\n")
@@ -135,7 +135,7 @@ def football_quiz():
         has_letters = any(char in string.ascii_letters for char in user_input)
         has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
         return has_letters and has_valid_chars
-
+    
     def get_valid_input(question):
         while True:
             user_input = input(question)
@@ -214,7 +214,7 @@ def music_quiz():
         has_letters = any(char in string.ascii_letters for char in user_input)
         has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
         return has_letters and has_valid_chars
-
+    
     def get_valid_input(question):
         while True:
             user_input = input(question)
