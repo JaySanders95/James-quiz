@@ -13,7 +13,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Quiz_Scores')
 
-
 # Get player username
 def get_user_name():
     """
@@ -48,9 +47,7 @@ def general_knowledge():
     """
     def valid_input(user_input):
         # Checks if user input is a string entered
-        has_letters = any(char in string.ascii_letters for char in user_input)
-        has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
-        return has_letters and has_valid_chars
+        return all(char in string.ascii_letters + ' ' for char in user_input)
     
     def get_valid_input(question):
         while True:
@@ -127,14 +124,12 @@ def football_quiz():
     and relay the highscore table back to them
     """
     print("Welcome to the Football Quiz!\n")
-    print("if you do not know the enter press type 'pass' to pass")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
 
     def valid_input(user_input):
         # Checks if user input is a string entered
-        has_letters = any(char in string.ascii_letters for char in user_input)
-        has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
-        return has_letters and has_valid_chars
+        return all(char in string.ascii_letters + ' ' for char in user_input)
     
     def get_valid_input(question):
         while True:
@@ -144,8 +139,8 @@ def football_quiz():
             else:
                 print("Invalid input. Please use letters only.")
 
-    print(f"Welcome to the Football Quiz {username}!\n")
-    print("if you do not know the answer press type 'Pass'")
+    print(f"Welcome to the General Knowledge Quiz {username}!\n")
+    print("if you do not know the answer press 'enter' to pass")
     score = 0
 
     questions = [
@@ -186,6 +181,127 @@ def football_quiz():
             print(f"Sorry, the correct answer is {answers[i]}")
             print("-------------------------------")
 
+    # print("Question 1 \n")
+    # print("Who won the 2006 World cup?")
+    # userInput = input()
+    # if (userInput.lower() == "Italy".lower()):
+    #     print("That is correct!")
+    #     print("They won 5-3 on penalties against France.")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Italy.")
+    #     print("They won 5-3 on penalties against France.")
+    #     print("-------------------------------")
+
+    # print("Question 2 \n")
+    # print("Who scored the winner in the 2014 World cup final?")
+    # userInput = input()
+    # if (userInput.lower() == "Mario Gotze".lower()):
+    #     print("That is correct!")
+    #     print("He scored in the 113th minute to win.")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Mario Gotze.")
+    #     print("He scored in the 113th minute to win.")
+    #     print("-------------------------------")
+    # print("Question 3 \n")
+    # print("Who is the all time top goalscorer in the World Cup?")
+    # userInput = input()
+    # if (userInput.lower() == "Miroslav Klose".lower()):
+    #     print("That is correct!")
+    #     print("He is currently top with 16 goals")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Miroslav Klose.")
+    #     print("He is currently top with 16 goals")
+    #     print("-------------------------------")
+
+    # print("Question 4 \n")
+    # print("Who won the Premier league in 2015-16?")
+    # userInput = input()
+    # if (userInput.lower() == "Leicester".lower()):
+    #     print("That is correct!")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Leicester City.")
+    #     print("-------------------------------")
+
+    # print("Question 5 \n")
+    # print("What player has sold the most football jerseys?")
+    # userInput = input()
+    # if (userInput.lower() == "Lionel Messi".lower()):
+    #     print("That is correct!")
+    #     print("As of 2023, lionel messi leads the sales with 1.2 million")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Lionel Messi.")
+    #     print("As of 2023, lionel messi leads the sales with 1.2 million")
+    #     print("-------------------------------")
+
+    # print("Question 6 \n")
+    # print("Where was the 2016 Champions League final held?")
+    # userInput = input()
+    # if (userInput.lower() == "San siro".lower()):
+    #     print("That is correct!")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is San siro.")
+    #     print("-------------------------------")
+
+    # print("Question 7 \n")
+    # print("Where was the world cup controversially held in 2022?")
+    # userInput = input()
+    # if (userInput.lower() == "Qatar".lower()):
+    #     print("That is correct!")
+    #     print("It was held during the middle of the domestic timetable")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Qatar.")
+    #     print("It was held during the middle of the domestic timetable")
+    #     print("-------------------------------")
+
+    # print("Question 8 \n")
+    # print("Who is the most decorated manager of all time?")
+    # userInput = input()
+    # if (userInput.lower() == "Alex Ferguson".lower()):
+    #     print("That is correct!")
+    #     print("He has 49 titles")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Alex Ferguson.")
+    #     print("He has 49 titles")
+    #     print("-------------------------------")
+
+    # print("Question 9 \n")
+    # print("What national team made their debut in the 2010 world cup?")
+    # userInput = input()
+    # if (userInput.lower() == "Slovakia".lower()):
+    #     print("That is correct!")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Slovakia.")
+    #     print("-------------------------------")
+
+    # print("Question 10 \n")
+    # print("Who is the current manager of Liverpool FC?")
+    # userInput = input()
+    # if (userInput.lower() == "Jurgen Klopp".lower()):
+    #     print("That is correct!")
+    #     print("-------------------------------")
+    #     score += 1
+    # else:
+    #     print("Sorry, the correct answer is Jurgen Klopp.")
+    #     print("-------------------------------")
+
     print(f"Thanks for playing {username}, your final score was {score}")
     score_sheet = SHEET.worksheet("football")
     score_sheet.append_row([username, score])
@@ -209,182 +325,129 @@ def music_quiz():
     Then add their highscores to the Quiz_Scores Google spreadsheet
     and relay the highscore table back to them
     """
-    def valid_input(user_input):
-        # Checks if user input is a string entered with spaces allowed
-        has_letters = any(char in string.ascii_letters for char in user_input)
-        has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
-        return has_letters and has_valid_chars
-    
-    def get_valid_input(question):
-        while True:
-            user_input = input(question)
-            if valid_input(user_input):
-                return user_input
-            else:
-                print("Invalid input. Please use letters only.")
-
-    print(f"Welcome to the Music Quiz {username}!\n")
-    print("if you do not know the answer press type 'pass' to pass")
+    print("Welcome to the Music Quiz!\n")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
+    print("Question 1 \n")
+    print("What band wrote 'Let it be?'")
+    userInput = input()
+    if (userInput.lower() == "The Beatles".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is The Beatles.")
+        print("-------------------------------")
 
-    questions = [
-        "What band wrote 'Let it be?'  ",
-        "What is the name of the sold vinyl of all time?  ",
-        "What band tragically died in Sweden in 2016?  ",
-        "Finish the song name 'Mr Blue ...' ?  ",
-        "What song has been streamed the most (as of march 2023)?  ",
-        "Who has won the most Grammy awards?  ",
-        "What artist has played at glastonbury festival the most?  ",
-        "Who 'wrote' Party in the USA?  ",
-        "What city are the band Arctic Monkeys from?  ",
-        "Who is the lead singer of Coldplay?  "
-    ]
+    print("Question 2 \n")
+    print("What is the name of the sold vinyl of all time?")
+    userInput = input()
+    if (userInput.lower() == "Thriller".lower()):
+        print("That is correct!")
+        print("Thriller by Michael Jackson has sold 27 million vinyls")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Portugal.")
+        print("Thriller by Michael Jackson has sold 27 million vinyls")
+        print("-------------------------------")
 
-    answers = [
-        "The Beatles",
-        "Thriller",
-        "Viola beach",
-        "Sky",
-        "Blinding lights",
-        "Beyonce",
-        "Van morrison",
-        "Jessie J",
-        "Sheffield",
-        "Chris Martin"
-    ]
+    print("Question 3 \n")
+    print("What band tragically died in Sweden in 2016?")
+    userInput = input()
+    if (userInput.lower() == "Viola Beach".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Viola Beach.")
+        print("-------------------------------")
 
-    for i in range(10):
-        print(f"Question{i + 1}\n")
-        user_input = get_valid_input(questions[i])
+    print("Question 4 \n")
+    print("Finish the song name 'Mr Blue ...' .")
+    userInput = input()
+    if (userInput.lower() == "Sky".lower()):
+        print("That is correct!")
+        print("Mr Blue Sky by Jeff Lynn's ELO")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Sky.")
+        print("Mr Blue Sky by Jeff Lynn's ELO")
+        print("-------------------------------")
 
-        if user_input.lower() == answers[i].lower():
-            print("That is correct!")
-            print("-------------------------------")
-            score += 1
-        else:
-            print(f"Sorry, the correct answer is {answers[i]}")
-            print("-------------------------------")
+    print("Question 5 \n")
+    print("What song has been streamed the most (as of march 2023)?")
+    userInput = input()
+    if (userInput.lower() == "Blinding Lights".lower()):
+        print("That is correct!")
+        print("Blinding Lights by The Weekend.")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Blinding Lights.")
+        print("-------------------------------")
 
-    # print("Question 1 \n")
-    # print("What band wrote 'Let it be?'")
-    # userInput = input()
-    # if (userInput.lower() == "The Beatles".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is The Beatles.")
-    #     print("-------------------------------")
+    print("Question 6 \n")
+    print("Who has won the most Grammy awards?")
+    userInput = input()
+    if (userInput.lower() == "Beyonce".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Beyonce.")
+        print("-------------------------------")
 
-    # print("Question 2 \n")
-    # print("What is the name of the sold vinyl of all time?")
-    # userInput = input()
-    # if (userInput.lower() == "Thriller".lower()):
-    #     print("That is correct!")
-    #     print("Thriller by Michael Jackson has sold 27 million vinyls")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Portugal.")
-    #     print("Thriller by Michael Jackson has sold 27 million vinyls")
-    #     print("-------------------------------")
+    print("Question 7 \n")
+    print("What artist has played at glastonbury festival the most?")
+    userInput = input()
+    if (userInput.lower() == "Van Morrison".lower()):
+        print("That is correct!")
+        print("He has played the most with 8 appearances")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Van Morrison.")
+        print("He has played the most with 8 appearances")
+        print("-------------------------------")
 
-    # print("Question 3 \n")
-    # print("What band tragically died in Sweden in 2016?")
-    # userInput = input()
-    # if (userInput.lower() == "Viola Beach".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Viola Beach.")
-    #     print("-------------------------------")
+    print("Question 8 \n")
+    print("Who 'wrote' Party in the USA?")
+    userInput = input()
+    if (userInput.lower() == "Jessie J".lower()):
+        print("That is correct!")
+        print("Jessie J wrote the song for Miley Cyrus")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Jessie J.")
+        print("Jessie J wrote the song for Miley Cyrus")
+        print("-------------------------------")
 
-    # print("Question 4 \n")
-    # print("Finish the song name 'Mr Blue ...' ?")
-    # userInput = input()
-    # if (userInput.lower() == "Sky".lower()):
-    #     print("That is correct!")
-    #     print("Mr Blue Sky by Jeff Lynn's ELO")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Sky.")
-    #     print("Mr Blue Sky by Jeff Lynn's ELO")
-    #     print("-------------------------------")
+    print("Question 9 \n")
+    print("What city is the band Arctic Monkeys from?")
+    userInput = input()
+    if (userInput.lower() == "Sheffield".lower()):
+        print("That is correct!")
+        print("Arctic Monkeys are from Sheffield, UK")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Sheffield.")
+        print("Arctic Monkeys are from Sheffield, UK")
+        print("-------------------------------")
 
-    # print("Question 5 \n")
-    # print("What song has been streamed the most (as of march 2023)?")
-    # userInput = input()
-    # if (userInput.lower() == "Blinding Lights".lower()):
-    #     print("That is correct!")
-    #     print("Blinding Lights by The Weekend.")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Blinding Lights.")
-    #     print("-------------------------------")
-
-    # print("Question 6 \n")
-    # print("Who has won the most Grammy awards?")
-    # userInput = input()
-    # if (userInput.lower() == "Beyonce".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Beyonce.")
-    #     print("-------------------------------")
-
-    # print("Question 7 \n")
-    # print("What artist has played at glastonbury festival the most?")
-    # userInput = input()
-    # if (userInput.lower() == "Van Morrison".lower()):
-    #     print("That is correct!")
-    #     print("He has played the most with 8 appearances")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Van Morrison.")
-    #     print("He has played the most with 8 appearances")
-    #     print("-------------------------------")
-
-    # print("Question 8 \n")
-    # print("Who 'wrote' Party in the USA?")
-    # userInput = input()
-    # if (userInput.lower() == "Jessie J".lower()):
-    #     print("That is correct!")
-    #     print("Jessie J wrote the song for Miley Cyrus")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Jessie J.")
-    #     print("Jessie J wrote the song for Miley Cyrus")
-    #     print("-------------------------------")
-
-    # print("Question 9 \n")
-    # print("What city is the band Arctic Monkeys from?")
-    # userInput = input()
-    # if (userInput.lower() == "Sheffield".lower()):
-    #     print("That is correct!")
-    #     print("Arctic Monkeys are from Sheffield, UK")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Sheffield.")
-    #     print("Arctic Monkeys are from Sheffield, UK")
-    #     print("-------------------------------")
-
-    # print("Question 10 \n")
-    # print("Who is the lead singer of Coldplay?")
-    # userInput = input()
-    # if (userInput.lower() == "Chris Martin".lower()):
-    #     print("That is correct!")
-    #     print("-------------------------------")
-    #     score += 1
-    # else:
-    #     print("Sorry, the correct answer is Chris Martin.")
-    #     print("-------------------------------")
+    print("Question 10 \n")
+    print("Who is the lead singer of Coldplay?")
+    userInput = input()
+    if (userInput.lower() == "Chris Martin".lower()):
+        print("That is correct!")
+        print("-------------------------------")
+        score += 1
+    else:
+        print("Sorry, the correct answer is Chris Martin.")
+        print("-------------------------------")
 
     print(f"Thanks for playing {username}, your final score was {score}")
     score_sheet = SHEET.worksheet("music")

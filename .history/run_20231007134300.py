@@ -127,7 +127,7 @@ def football_quiz():
     and relay the highscore table back to them
     """
     print("Welcome to the Football Quiz!\n")
-    print("if you do not know the enter press type 'pass' to pass")
+    print("if you do not know the enter press 'enter' to pass")
     score = 0
 
     def valid_input(user_input):
@@ -145,7 +145,7 @@ def football_quiz():
                 print("Invalid input. Please use letters only.")
 
     print(f"Welcome to the Football Quiz {username}!\n")
-    print("if you do not know the answer press type 'Pass'")
+    print("if you do not know the answer press 'enter' to pass")
     score = 0
 
     questions = [
@@ -224,7 +224,7 @@ def music_quiz():
                 print("Invalid input. Please use letters only.")
 
     print(f"Welcome to the Music Quiz {username}!\n")
-    print("if you do not know the answer press type 'pass' to pass")
+    print("if you do not know the answer press 'enter' to pass")
     score = 0
 
     questions = [
