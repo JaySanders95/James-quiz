@@ -36,8 +36,33 @@ The quiz resides within 4 functions, once a quiz is selected by typing, it will 
 
 ## Testing
 - I have manually tested my code through the CI linter at https://pep8ci.herokuapp.com/# and there are no issues with the code.
-- I have tested my code through the Git terminal and found all 3 tests run correctly, all 3 send the correct data to the correct page and all 3 relay the correct information back to the user.
-- I have tested my code through the Heroku online terminal and found all 3 tests run correctly, all 3 send the correct data to the correct page and all 3 relay the correct information back to the user.
+
+### Manual Testing  
+I setup different case scenarios:
+User John - Quiz Music
+User "£$" - Quiz General
+User Tim98 - Quiz Art
+
+
+Here are the steps provided to test as user John:
+- I entered my name as the username: John - this was accepted
+- I selected the correct quiz by typing 'Music'
+- I did not know the answer to question A, following instruction from the terminal i was able to skip this question.
+- I tried to break the function by adding !""£"£$"£$"£%"£$^ to the terminal, none of these were allowed.
+- i tried to enter whitespace or nothing at all, the terminal will not allow me to continue unless i type at least something.
+- I was able to type lowercase and uppercase starting answers and these were both accepted as correct answers.
+- my score was correct and was displayed back to me at the end.
+- I was asked if i wanted to play again, i selected N and the function ended.
+- i reran the code, and typed K as my answer, as a result the code was ended as a valid input was not selected
+
+Here are the steps provided to test as user "£$":
+- I entered the username "£$".
+- i received an error and could not continue until a name was provided in string format only.
+
+Here are the steps provided to test as user Tim98:
+- I entered the username: Tim98 - this was accepted
+- I selected the category: art
+- I was not allowed to continue as this was a valid input, and would loop until a correct one was selected.
 
 Here is the breakdown of the complete testing of this project.
 -  The google sheets API
