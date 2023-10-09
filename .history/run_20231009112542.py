@@ -47,10 +47,7 @@ def general_knowledge():
     and relay the highscore table back to them
     """
     def valid_input(user_input):
-        """
-        Checks if the input is a string and allows a whitespace to be entered, but
-        does not allow just a whitespace to be entered.
-        """
+        # Checks if user input is a string entered
         has_letters = any(char in string.ascii_letters for char in user_input)
         has_valid_chars = all(char in string.ascii_letters + ' ' for char in user_input)
         return has_letters and has_valid_chars
