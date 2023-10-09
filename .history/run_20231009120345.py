@@ -28,7 +28,9 @@ def get_user_name():
         if user_input.isalnum():
             return user_input
         else:
-            print("Invalid input. Please enter a username with only letters and numbers")
+            print(
+                "Invalid input. Please enter a username with only letters/numbers"
+            )
 
 
 try:
